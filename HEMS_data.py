@@ -50,7 +50,7 @@ class HEMSDataInput():
         self.BatteryPower = 5 #kW power has positive convention as output -- power output (+) or power to charge (-)
         self.BatteryChargeEff = 0.9 #Charging Efficeicny (Must take into account efficiecny of AC/DC and charge controller)
         self.BatteryDischargeEff = 0.85 #Discharging Efficeicny (Must take into account efficiecny of AC/DC and charge controller)
-        self.BatteryRTEff = 0.8 #Round Trip Efficeincy
+        #self.BatteryRTEff = 0.8 #Round Trip Efficeincy
         self.BatteryNominalCapacity = 150 #AmpHours of Battery Bank
         self.BatteryCurrentCapacity = 150 #AmpHours Assume Battery Bank is fully charge at beginging of simulation
         self.BatteryVoltageNominal = 48    #Volts Nominal Voltage of battery
@@ -61,8 +61,11 @@ class HEMSDataInput():
 
         #Load
         self.LoadUncontrollablePower = [] #kW Power requested by loads that are uncontrollable
-        self.LoadControllablePower = []  #kW Power requested by loads that are controllable
+        self.LoadControllablePower= []  #kW Power requested by loads that are controllable
         self.LoadCurtailPercent = 0    #Percent of load to be curtailed and met at a later time step
+        self.Load = [] #kW Power requested by loads
+        self.MaxCurtail = 0.3 #Max percent of load that can be curtailed
+        self.loadBank = '0' #Load to be curtailed and met at a later time step
 
 
 class HEMSDataOutput():
@@ -90,5 +93,7 @@ class HEMSDataOutput():
         #Load
         self.LoadControllablePowerActual = 0;  # kW Power used by loads that are controllable
         self.LoadPercentCurtail = 0  # Percent of controllable load that is curtailed
+        self.loadBankEnergy = 0
+        self.curtail = 0
 
 

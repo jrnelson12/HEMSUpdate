@@ -15,3 +15,4 @@ def Load(controllableLoadPower, curtail, uncontrollableLoadPower):
     totalLoadPower = uncontrollableLoadPower + powerNet
 
     return totalLoadPower
+
